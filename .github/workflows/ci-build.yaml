@@ -74,7 +74,7 @@ jobs:
             runner: ubuntu-latest-16-cores
             oci: amd64
           - arch: aarch64
-            runner: ubuntu-arm-16-cores
+            runner: ARMLinuxRunner
             oci: arm64
       fail-fast: false
     runs-on: ${{ matrix.runner }}
