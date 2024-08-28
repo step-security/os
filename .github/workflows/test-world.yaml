@@ -25,9 +25,9 @@ jobs:
       matrix:
         include:
           - arch: x86_64
-            runner: ubuntu-intel-64-cores
+            runner: ubuntu-latest
           - arch: aarch64
-            runner: ubuntu-arm-64-cores
+            runner: ARMLinuxRunner
       fail-fast: false
 
     runs-on: ${{matrix.runner}}
