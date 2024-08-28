@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+        uses: step-security/harden-runner@rc
         with:
           egress-policy: audit
 
@@ -43,7 +43,7 @@ jobs:
         with:
           project_id: "chainguard-github-secrets"
 
-      - uses: 'google-github-actions/get-secretmanager-secrets@95a0b09b8348ef3d02c68c6ba5662a037e78d713' # v2.1.4
+      - uses: "google-github-actions/get-secretmanager-secrets@95a0b09b8348ef3d02c68c6ba5662a037e78d713" # v2.1.4
         id: secrets
         with:
           secrets: |-
@@ -114,7 +114,7 @@ jobs:
           # https://github.com/chainguard-dev/mono/blob/main/env/chainguard-images/iac/wolfi-os-pusher.tf
           identity: "720909c9f5279097d847ad02a2f24ba8f59de36a/6a26f2970f880c31"
 
-      - name: 'Withdraw packages from apk.cgr.dev'
+      - name: "Withdraw packages from apk.cgr.dev"
         run: |
           set -e
           # Populate the token here, since chainctl auth token
@@ -138,8 +138,8 @@ jobs:
           SLACK_USERNAME: guardian
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_CHANNEL: chainguard-images-alerts
-          SLACK_COLOR: '#8E1600'
-          MSG_MINIMAL: 'true'
-          SLACK_TITLE: '[withdraw-packages] failure: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'
+          SLACK_COLOR: "#8E1600"
+          MSG_MINIMAL: "true"
+          SLACK_TITLE: "[withdraw-packages] failure: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
           SLACK_MESSAGE: |
             https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}

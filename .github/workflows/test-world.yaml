@@ -9,7 +9,6 @@ on:
 
   workflow_dispatch:
 
-
 # Only run one test at a time to curtail costs
 concurrency:
   group: test-world-${{ github.ref }}
@@ -39,7 +38,7 @@ jobs:
 
     steps:
       - name: Harden Runner
-        uses: step-security/harden-runner@5c7944e73c4c2a096b17a9cb74d65b6c2bbafbde # v2.9.1
+        uses: step-security/harden-runner@rc
         with:
           egress-policy: audit
 
